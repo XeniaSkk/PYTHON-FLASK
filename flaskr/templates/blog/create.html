@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{%  block header %}
+    <h1>{% block title %}New Post{% endblock %}</h1>
+    <a class="btn btn-outline-success" href="{{url_for('blog.index')}}">Return</a>
+{% endblock %}
+
+
+{% block content %}
+
+<form method="post">
+    <div class="form-group">
+
+        <h4 for="title">Title</h4>
+        <input type="text" class="form-control form-control-lg space" name="title" id="title" value="{{ request.form['title'] }}" required>
+
+        <h4 for="body">Body</h4>
+        <textarea  class="form-control form-control-lg space" name="body" id="body">{{ request.form['body']}}</textarea>
+
+        <input type="submit" class="btn btn-outline-success space" value="Submit">
+    </div>
+
+</form>
+{% endblock %}
